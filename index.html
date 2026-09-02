@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>סופר איקס עיגול</title>
+    <style>
+        .qwerty { /*הכפתורים של הלוח*/
+            height: 70px;
+            width: 70px;
+            background-color: rgb(35,42,95);
+            z-index: 0;
+        }
+
+            .qwerty:hover { /*אם נוגעים בהם*/
+                box-shadow: 0 0 15px #ff4500; /*עושה הילה*/
+                /*                filter: brightness(5);*/
+                transform: scale(1.1); /*מגדיל אותם פי 1.1*/
+                z-index: 1;
+            }
+
+
+
+        .play {
+            width: 500px; /* רוחב הכפתור */
+            height: 100px; /* גובה הכפתור */
+            background-color: #4CAF50; /* צבע הרקע */
+            color: white; /* צבע הטקסט */
+            border: none; /* ללא גבול */
+            border-radius: 50%; /* עיגול */
+            font-size: 16px; /* גודל הטקסט */
+            cursor: pointer; /* מצביע על כך שזה כפתור */
+            display: flex; /* מאפשר למרכז את הטקסט */
+            align-items: center; /* מרכז את הטקסט אנכית */
+            justify-content: center; /* מרכז את הטקסט אופקית */
+            border: thin;
+        }
+
+        .skin { /*לתמונות של הסקינים*/
+            width: 200px; /* רוחב הכפתור */
+            height: 200px; /* גובה הכפתור */
+        }
+
+        .skinb { /*לכפתורים של הסקינים*/
+            background-color: aqua; /*צבע תכלת*/
+            border: 0px; /*בלי מסגרת*/
+        }
+
+            .skinb:hover { /*כשנוגעים בכפתורים של הסקינים אז*/
+                transform: scale(1.1); /*מגדיל אותם פי 1.1*/
+            }
+
+        .tor {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: x-large;
+        }
+
+        .win {
+            position: absolute;
+            height: 500px;
+            width: 450px;
+            background-size: cover; /* מתאים לגודל */
+            background-position: center; /* מרכז את התמונה */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* שומר אותו ממש באמצע */
+            font-size: 50px;
+            color: rgba(0,0,0,0); /* הופך אותו לשקוף כברירת מחדל */
+            pointer-events: none; /* שלא יחסום קליקים */
+            z-index: 1;
+        }
+
+        .wwww {
+            display: block;
+            height: 50px;
+            width: 100px;
+            font-size: 50px; /* גודל הטקסט */
+            margin: 0 auto; /* מרווח אוטומטי משני הצדדים */
+            text-align: center; /* אם רוצים שהתוכן יהיה במרכז */
+        }
+    </style>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body style="background-color:aqua">
+    <span id="win" class="win"></span>
+    <span id="www" class="wwww"></span>
+
+    <!-- 1. אזור בחירת מצב המשחק: ודא שיש כאן את ה-ID (mode-selector, btn-vs-cpu, btn-1v1) -->
+    <center id="mode-selector">
+        <h2 style="font-family: sans-serif;">Select a game mode (before selecting a skin):</h2>
+        <button id="btn-vs-cpu" onclick="setGameMode(true)" style="font-size: 20px; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 10px; border: 2px solid #333; background-color: #a0ffa0;">Play VS computer</button>
+        <button id="btn-1v1" onclick="setGameMode(false)" style="font-size: 20px; padding: 10px 20px; margin: 5px; cursor: pointer; border-radius: 10px; border: 2px solid #333; background-color: #fff;">Play one VS one</button>
+    </center>
+
+    <div style="position: relative; display: flex; justify-content: center; align-items: center; width: 100%;">
+
+        <!-- 2. חשוב מאוד: שים לב שהורדנו את סימון ההערה (החיצים) כדי שה-JS ימצא את id="tor" -->
+        <span class="tor" style="left: 20px;" id="tor"></span>
+
+        <span class="tor" style="color: red; right: 20px; font-size: 100px;" id="error"></span>
+        <center id="play">
+            <br />
+            <br />
+
+            <span onclick="bodi()" style="font-size:x-large;">w</span><span style="font-size:x-large">hich skin do you </span><span onclick="tomjery()" style="font-size:x-large">want</span><span onclick="namer()" style="font-size:x-large;">?</span>
+            <br />
+            <br />
+            <span>
+                <button class="skinb" onclick="xo()">
+                    <img class="skin" src="pic to xo o.webp" />
+                    <img class="skin" src="pic to xo x.webp" />
+                </button>
+                <br />
+                <br />
+                <button class="skinb" onclick="basc()">
+                    <img class="skin" src="pic to xo fut.webp" />
+                    <img class="skin" src="pic to xo basc.webp" />
+                </button>
+            </span>
+        </center>
+    </div>        
+    <!--עושה שיהיה קונפטי-->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        document.querySelector(".confetti-btn").addEventListener("click", function () {
+            confetti();
+        });
+    </script>
+    <script src="2in1 js.js"></script>
+</body>
+</html>
