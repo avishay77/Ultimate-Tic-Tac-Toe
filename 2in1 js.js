@@ -641,11 +641,11 @@ function evaluateBigLine(line) {
 
     if (xCount > 0 && oCount > 0) return 0; // אם שני הצדדים נמצאים בשורה - אין ערך
 
-    if (xCount === 3) return 100000; // ניצחון גדול
+    if (xCount === 3) return Infinity; // ניצחון גדול
     if (xCount === 2 && empty === 1) return 5000; //אם יש 2 איקס והשאר ריק מחזיר 5000
     if (xCount === 1 && empty === 2) return 1000; //אם יש 1 איקס והשאר ריק מחזיר 1000
 
-    if (oCount === 3) return -100000; //נצחון גדול
+    if (oCount === 3) return -Infinity; //נצחון גדול
     if (oCount === 2 && empty === 1) return -5000; //אם יש 2 עיגול והשאר ריק מחזיר -5000
     if (oCount === 1 && empty === 2) return -1000; //אם יש 1 עיגול והשאר ריק מחזיר -1000
 
